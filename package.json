@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "cilent": "cd cilent  && npm  run start",
+    "server-install": "npm install",
+    "cilent-install": "cd cilent && npm install",
+    "install-all": "concurrently \"npm run server-install\" \"npm run cilent-install\"",
+    "dev": "concurrently \"npm run server\" \"npm run cilent\"",
+    "heroku-postbuild": "cd cilent && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "concurrently": "^6.4.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
+  }
+}
