@@ -32,6 +32,14 @@ app.use("/users", userRoute);
 app.use("/posts", postRoute);
 app.use("/categories", categoryRoute);
 
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('cilent/build'))
+  app.get("*",(req,res) =>{
+      res.sendFile(path.join(__dirname,'cilent','build','index.html'))
+  })
+}
+
 const upload = multer({ storage: storage });
 app.post("/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
